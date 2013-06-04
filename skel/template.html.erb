@@ -11,8 +11,12 @@
   </head>
   <body>
     <script type="text/javascript">
-      jasmine.getEnv().console = {
-        log: function(msg) { JHW.stdout.puts(msg) }
+      if (window.JHW) {
+        jasmine.getEnv().console = {
+          log: function(msg) { JHW.stdout.puts(msg) }
+        }
+      } else {
+        jasmine.getEnv().console = console;
       }
 
       window._onload = window.onload;
